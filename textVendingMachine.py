@@ -4,8 +4,9 @@ import time
 money = random.randint(1, 50)
 money = money * 100
 re, end, rell = 0, 0, 0
-def sp():
-    print()
+def sp(n):
+    for i in range(0, n):
+        print()
 def nm(sm, text):
     global money
     global re
@@ -14,7 +15,7 @@ def nm(sm, text):
     if money < int(sm):
         if money != 0:
             print("\033[38;5;9m" + "남은 돈: 0")
-            sp()
+            sp(1)
             money = 0
             time.sleep(3)
             print("남은 돈은 반환되지 않습니다." + "\033[0m")
@@ -22,7 +23,7 @@ def nm(sm, text):
             end = 1
         else:
             print("\033[38;5;9m" + "남은 돈: 0")
-            sp()
+            sp(1)
             money = 0
             time.sleep(3)
             print("\033[38;5;9m" + "돈이 없는데 어떻게 음료를 살까요?" + "\033[0m")
@@ -31,14 +32,14 @@ def nm(sm, text):
         if choice == "k":
             print("뭐가 나올까요..!")
             input("[결과를 보려면 Enter를 누르세요.]")
-            sp()
+            sp(1)
         money = money - sm
         print(text)
         print("남은 돈: %s" %money)
         input("[자판기로 돌아가려면 Enter를 누르세요.]")
-        sp()
+        sp(1)
         re = re + 1
-sp()
+sp(1)
 while end == 0:
     print("음료를 선택하세요.")
     print("   [음료 목록]")
@@ -54,10 +55,10 @@ while end == 0:
     print("   j: 쌕쌕 오렌지(800원)")
     print("   k: 행운의 뽑기칸!(1000원)")
     print(" x: 구매 종료")
-    sp()
+    sp(1)
     print("남은 돈: %s" %money)
     choice = input("어떤 음료를 사겠습니까?: ")
-    sp()
+    sp(1)
     if choice == "a":
         nm(1500, "제주 삼다수를 마셨다! 역시 음료는 근-본을 마셔야 해!")
     elif choice == "b":
@@ -111,23 +112,17 @@ while end == 0:
         if rell == 5:
             print("장난 치지마세요;;")
             input("[자판기로 돌아가려면 Enter를 누르세요.]")
-            sp()
-            sp()
-            sp()
+            sp(3)
         elif rell == 10:
             time.sleep(3)
             print("\033[38;5;9m" + "장난치지 말라고요." + "\033[0m")
             ##이건 솔직히 빡칠만 했어;;##
             input("[자판기로 돌아가려면 Enter를 누르세요.]")
-            sp()
-            sp()
-            sp()
+            sp(3)
         elif rell > 10:
             end = 1
         else:
             print("죄송하지만 주문을 잘못하신것 같은데..")
             print("다시 주문해주세요!")
             input("[자판기로 돌아가려면 Enter를 누르세요.]")
-            sp()
-            sp()
-            sp()
+            sp(3)
